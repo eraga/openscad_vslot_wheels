@@ -1,8 +1,8 @@
-include <../vslot_wheels/vslot_wheels.scad>
+include <vslot_wheels.scad>
 include <NopSCADlib/utils/core/core.scad>
 include <NopSCADlib/vitamins/nuts.scad>
 include <NopSCADlib/vitamins/screws.scad>
-
+use <utils.scad>
 
 function vslot_wheel_assembly_screw_overhang(type)  = type[6] == undef ? 0 : type[6];
 
@@ -10,34 +10,34 @@ function vslot_wheel_assembly_screw_overhang(type)  = type[6] == undef ? 0 : typ
 module spacer(h = 6) {
     hstr = str_replace(str(h), ".", "_");
     vitamin(str(
-        "spacer(", str(h), "): OpenBuilds Spacer (h=", h, "mm)"
+    "spacer(", str(h), "): OpenBuilds Spacer (h=", h, "mm)"
     ));
     color("silver")
-    render()
-    translate([0,0,h])
-    rotate([0,180,0])
-    difference() {
-        cylinder(h, d = 10);
-        translate([0,0,-0.1])
-        cylinder(h+0.2, d = 5);
-    }
+        render()
+            translate([0,0,h])
+                rotate([0,180,0])
+                    difference() {
+                        cylinder(h, d = 10);
+                        translate([0,0,-0.1])
+                            cylinder(h+0.2, d = 5);
+                    }
 }
 
 
 module eccentric_spacer(h = 6) {
     vitamin(str(
-        "eccentric_spacer(", h ,"): OpenBuilds Eccentric Spacer (h=", h, "mm)"
+    "eccentric_spacer(", h ,"): OpenBuilds Eccentric Spacer (h=", h, "mm)"
     ));
     translate([0,0,h])
-    rotate([0,180,0])
-    echo("h",h);
+        rotate([0,180,0])
+            echo("h",h);
     difference() {
-            union() {
-                color("red")
+        union() {
+            color("red")
                 cylinder(h, d = 10, $fn=6);
-                cylinder(h+2.5, d = 7.12);
-            }
-            translate([0,1,-0.1])
+            cylinder(h+2.5, d = 7.12);
+        }
+        translate([0,1,-0.1])
             cylinder(h+3, d = 5);
     }
 }
