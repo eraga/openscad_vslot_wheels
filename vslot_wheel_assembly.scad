@@ -28,9 +28,7 @@ module eccentric_spacer(h = 6) {
     vitamin(str(
     "eccentric_spacer(", h ,"): OpenBuilds Eccentric Spacer (h=", h, "mm)"
     ));
-    translate([0,0,h])
-        rotate([0,180,0])
-            echo("h",h);
+
     difference() {
         union() {
             color("red")
