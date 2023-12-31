@@ -34,4 +34,4 @@ GEOM_SQ_20 = [[40,65],    5,      3,        VW_HOLES_20x2,  []];
 
 use <vwheel_plate.scad>
 
-vslot_plate(GEOM_TR_40);
+//vslot_plate(GEOM_TR_40);

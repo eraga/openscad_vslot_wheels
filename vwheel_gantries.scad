@@ -25,6 +25,10 @@ D_40_TRIANGLE_GANTRY = ["", GEOM_TR_40, [   D_XTREME_VW_SPACER,
 
 use <vwheel_gantry.scad>
 
+//vwheel_gantry(S_20_SQ_GANTRY);
+//vwheel_gantry(S_20_TRIANGLE_GANTRY)
+//    square([20,20], center = true);
+
 //difference() {
 //    vwheel_gantry(S_20_SQ_GANTRY);
 //    translate([0,10,0])

@@ -19,9 +19,11 @@ module vwheel_gantry(type, center = false, mirror = false, mirror_plate = [0,0,0
         rotate([90,0,90])
             translate([0,0,zTranslation]) {
                 vslot_plate(plate) {
-                    children(0);
-                    if($children > 1)
-                        children([1:$children-1]);
+                    if($children > 0) {
+                        children(0);
+                        if ($children > 1)
+                            children([1:$children - 1]);
+                    }
                 }
 
                 for (i=[0:len(holes)-1]){
